@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Sol y Luna | Experiencia de Lujo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Nueva paleta de colores elegante */
+            --color-primario: #1a2a3a;      /* Azul noche oscuro */
+            --color-secundario: #c19a6b;    /* Dorado cálido */
+            --color-terciario: #e8e6e1;     /* Beige claro elegante */
+            --color-texto: #333333;         /* Gris oscuro para texto */
+            --color-texto-claro: #f8f8f8;   /* Texto claro */
+            --color-fondo: #f9f7f4;         /* Fondo beige muy claro */
+            --color-destacado: #8b7355;     /* Dorado oscuro para acentos */
+            --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-texto);
+            background-color: var(--color-fondo);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .header-elegante {
+            background-color: var(--color-primario);
+            color: var(--color-texto-claro);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--sombra-suave);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo-contenedor {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-custom {
+            height: 60px;
+            width: auto;
+        }
+        
+        .titulo-logo h1 {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            color: var(--color-secundario);
+            font-size: 1.8rem;
+        }
+        
+        .slogan {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--color-terciario);
+            font-style: italic;
+        }
+        
+        .menu-creativo ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .menu-creativo a {
+            color: var(--color-texto-claro);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .menu-creativo a:hover {
+            color: var(--color-secundario);
+        }
+        
+        .reserva-dorado a {
+            background: linear-gradient(135deg, var(--color-secundario), var(--color-destacado));
+            color: var(--color-primario);
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--sombra-suave);
+        }
+        
+        .reserva-dorado a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(193, 154, 107, 0.3);
+        }
+        
+        .hero-parallax {
+            background: linear-gradient(rgba(26, 42, 58, 0.7), rgba(26, 42, 58, 0.7)), 
+                        url('img/hero.jpg') center/cover no-repeat;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-texto-claro);
+            padding: 0 2rem;
+        }
+        
+        .hero-texto h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-texto p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn-dorado {
+            background: linear-gradient(135deg, var(--color-secundario), var(--color-destacado));
+            color: var(--color-primario);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-dorado:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(193, 154, 107, 0.4);
+        }
+        
+        .seccion-servicios {
+            padding: 5rem 2rem;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .seccion-titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--color-primario);
+            text-align: center;
+        }
+        
+        .dorado {
+            color: var(--color-secundario);
+        }
+        
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .servicio {
+            background-color: var(--color-fondo);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            box-shadow: var(--sombra-suave);
+        }
+        
+        .servicio:hover {
+            transform: translateY(-10px);
+        }
+        
+        .servicio i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-secundario);
+        }
+        
+        .servicio h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primario);
+            margin: 1rem 0;
+        }
+        
+        .galeria-elegante {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 0;
+        }
+        
+        .imagen-galeria {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .overlay-dorado {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(26, 42, 58, 0.8));
+            padding: 2rem;
+            color: white;
+        }
+        
+        .overlay-dorado h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        
+        /* Sección habitaciones */
+        .habitaciones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .habitacion {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--sombra-suave);
+            transition: transform 0.3s;
+        }
+        
+        .habitacion:hover {
+            transform: translateY(-5px);
+        }
+        
+        .habitacion-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .habitacion-info {
+            padding: 1.5rem;
+        }
+        
+        .habitacion-titulo {
+            font-family: 'Playfair Display', serif;
+            color: var(--color-primario);
+            margin: 0 0 0.5rem 0;
+        }
+        
+        .habitacion-precio {
+            color: var(--color-secundario);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        /* Sección testimonios */
+        .testimonios-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .testimonio {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--sombra-suave);
+        }
+        
+        .testimonio-texto {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonio-autor {
+            font-weight: 600;
+            color: var(--color-secundario);
+        }
+        
+        /* Sección contacto */
+        .contacto-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .contacto-info {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--sombra-suave);
+        }
+        
+        .contacto-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--sombra-suave);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        .btn-enviar {
+            background: linear-gradient(135deg, var(--color-secundario), var(--color-destacado));
+            color: var(--color-primario);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-enviar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(193, 154, 107, 0.4);
+        }
+        
+        /* Sección reservas */
+        .reservas-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--sombra-suave);
+        }
+        
+        .reserva-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .reserva-form .form-group {
+            margin-bottom: 0;
+        }
+        
+        .reserva-form .form-group-full {
+            grid-column: span 2;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--color-primario);
+            color: var(--color-texto-claro);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            height: 80px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-redes {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-redes a {
+            color: var(--color-texto-claro);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-redes a:hover {
+            color: var(--color-secundario);
+        }
+        
+        .footer-derechos {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-creativo ul {
+                display: none;
+            }
+            
+            .hero-texto h1 {
+                font-size: 2.5rem;
+            }
+            
+            .grid-servicios {
+                grid-template-columns: 1fr;
+            }
+            
+            .contacto-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .reserva-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .reserva-form .form-group-full {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado con Logo y Menú -->
+    <header class="header-elegante">
+        <div class="logo-contenedor">
+            <img src="logo sol copy/logoooooo.png" alt="logo sol y luna" class="logo-custom">
+            <div class="titulo-logo">
+                <h1>Hotel Sol y Luna</h1>
+                <p class="slogan">Donde el lujo se encuentra con la serenidad</p>
+            </div>
+        </div>
+        <nav class="menu-creativo">
+            <ul>
+                <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#habitaciones"><i class="fas fa-bed"></i> Habitaciones</a></li>
+                <li><a href="#servicios"><i class="fas fa-spa"></i> Servicios</a></li>
+                <li><a href="#galeria"><i class="fas fa-images"></i> Galería</a></li>
+                <li><a href="#testimonios"><i class="fas fa-quote-left"></i> Testimonios</a></li>
+                <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+            <div class="reserva-dorado">
+                <a href="#reservas" id="btn-reservar">Reservar <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </nav>
+        <button class="menu-movil-btn"><i class="fas fa-bars"></i></button>
+    </header>
+
+    <!-- Sección Hero (Portada) -->
+    <section id="inicio" class="hero-parallax">
+        <div class="hero-texto">
+            <h1>Bienvenido al <span class="dorado">Hotel Sol y Luna</span></h1>
+            <p>Descubre un refugio de elegancia y tranquilidad donde cada detalle está pensado para ti.</p>
+            <a href="#habitaciones" class="btn-dorado">Explora Nuestras Suites</a>
+        </div>
+    </section>
+
+    <!-- Sección Habitaciones -->
+    <section id="habitaciones" class="seccion-servicios">
+        <h2 class="seccion-titulo">Nuestras <span class="dorado">Habitaciones</span></h2>
+        <div class="habitaciones-grid">
+            <div class="habitacion">  
+                <div class="habitacion-img" style="background-image: url('https://media.istockphoto.com/id/2157389613/es/foto/sal%C3%B3n-moderno-con-tonos-negros-sof%C3%A1-modular-y-sof%C3%A1-con-patr%C3%B3n-negro.jpg?s=1024x1024&w=is&k=20&c=W3C0b4Br16ZhDcTdDLFj5s8qZSDEBna0Sj-vieLXuJk=');"></div>
+                <div class="habitacion-info">
+                    <h3 class="habitacion-titulo">Suite Presidencial</h3>
+                    <span class="habitacion-precio">Desde $350/noche</span>
+                    <p>Amplia suite con cama king size, sala de estar privada, bañera de hidromasaje y vista panorámica al mar.</p>
+                    <a href="#reservas" class="btn-dorado" style="margin-top: 1rem;">Reservar</a>
+                </div>
+            </div>
+            
+            <div class="habitacion">
+                <div class="habitacion-img" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="habitacion-info">
+                    <h3 class="habitacion-titulo">Suite Ejecutiva</h3>
+                    <span class="habitacion-precio">Desde $280/noche</span>
+                    <p>Elegante suite con escritorio ejecutivo, cama king size y balcón privado con vista al jardín.</p>
+                    <a href="#reservas" class="btn-dorado" style="margin-top: 1rem;">Reservar</a>
+                </div>
+            </div>
+            
+            <div class="habitacion">
+                <div class="habitacion-img" style="background-image: url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="habitacion-info">
+                    <h3 class="habitacion-titulo">Habitación Deluxe</h3>
+                    <span class="habitacion-precio">Desde $220/noche</span>
+                    <p>Confortable habitación con cama queen size, baño de mármol y acceso a todas las instalaciones del hotel.</p>
+                    <a href="#reservas" class="btn-dorado" style="margin-top: 1rem;">Reservar</a>
+                </div>
+            </div>
+            
+            <div class="habitacion">
+                <div class="habitacion-img" style="background-image: url('https://images.unsplash.com/photo-1564078516393-cf04bd966897?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="habitacion-info">
+                    <h3 class="habitacion-titulo">Habitación Estándar</h3>
+                    <span class="habitacion-precio">Desde $180/noche</span>
+                    <p>Acogedora habitación con todas las comodidades para una estancia placentera.</p>
+                    <a href="#reservas" class="btn-dorado" style="margin-top: 1rem;">Reservar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="servicios" class="seccion-servicios">
+        <h2 class="seccion-titulo">Nuestros <span class="dorado">Servicios Exclusivos</span></h2>
+        <div class="grid-servicios">
+            <div class="servicio">
+                <i class="fas fa-concierge-bell"></i>
+                <h3>Gastronomía Gourmet</h3>
+                <p>Menús diseñados por chefs internacionales con ingredientes locales. Disfruta de nuestro restaurante galardonado y servicio de habitaciones 24/7.</p>
+            </div>
+            <div class="servicio">
+                <i class="fas fa-spa"></i>
+                <h3>Spa de Clase Mundial</h3>
+                <p>Terapias rejuvenecedoras con vistas al océano. Masajes, tratamientos faciales y corporales con productos naturales.</p>
+            </div>
+            <div class="servicio">
+                <i class="fas fa-swimming-pool"></i>
+                <h3>Piscina Infinita</h3>
+                <p>Disfruta de atardeceres únicos desde nuestra piscina suspendida con bar de cócteles y servicio de toallas.</p>
+            </div>
+            <div class="servicio">
+                <i class="fas fa-dumbbell"></i>
+                <h3>Gimnasio Equipado</h3>
+                <p>Mantén tu rutina de ejercicios con equipos de última generación y clases de yoga al amanecer.</p>
+            </div>
+            <div class="servicio">
+                <i class="fas fa-wifi"></i>
+                <h3>WiFi de Alta Velocidad</h3>
+                <p>Conexión ilimitada en todas las áreas del hotel para que estés siempre conectado.</p>
+            </div>
+            <div class="servicio">
+                <i class="fas fa-car"></i>
+                <h3>Transporte Privado</h3>
+                <p>Servicio de traslado desde/hacia el aeropuerto y alquiler de vehículos con chofer.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería de Imágenes -->
+    <section id="galeria" class="seccion-servicios">
+        <h2 class="seccion-titulo">Nuestra <span class="dorado">Galería</span></h2>
+        <div class="galeria-elegante">
+            <div class="imagen-galeria" style="background-image: url('https://images.unsplash.com/photo-1566669437685-bc1f9b84acd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                <div class="overlay-dorado">
+                    <h3>Suite Presidencial</h3>
+                </div>
+            </div>
+            <div class="imagen-galeria" style="background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                <div class="overlay-dorado">
+                    <h3>Suite Ejecutiva</h3>
+                </div>
+            </div>
+            <div class="imagen-galeria" style="background-image: url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                <div class="overlay-dorado">
+                    <h3>Habitación Deluxe</h3>
+                </div>
+            </div>
+            <div class="imagen-galeria" style="background-image: url('https://images.unsplash.com/photo-1564078516393-cf04bd966897?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                <div class="overlay-dorado">
+                    <h3>Habitación Estándar</h3>
+                </div>
+            </div>
+            <div class="imagen-galeria" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                <div class="overlay-dorado">
+                    <h3>Restaurante Gourmet</h3>
+                </div>
+            </div>
+            <div class="imagen-galeria" style="background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                <div class="overlay-dorado">
+                    <h3>Spa Relajante</h3>
+                </div>
+            </div>
+            <div class="imagen-galeria" style="background-image: url('https://images.unsplash.com/photo-1534258936925-c58bed479fcb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                <div class="overlay-dorado">
+                    <h3>Piscina Infinita</h3>
+                </div>
+            </div>
+            <div class="imagen-galeria" style="background-image: url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                <div class="overlay-dorado">
+                    <h3>Gimnasio</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Testimonios -->
+    <section id="testimonios" class="seccion-servicios" style="background-color: var(--color-fondo);">
+        <h2 class="seccion-titulo">Lo que dicen <span class="dorado">nuestros huéspedes</span></h2>
+        <div class="testimonios-container">
+            <div class="testimonio">
+                <p class="testimonio-texto">"Nuestra estancia en el Hotel Sol y Luna fue simplemente perfecta. Desde la atención del personal hasta las increíbles vistas desde nuestra habitación, todo superó nuestras expectativas. ¡Volveremos sin duda!"</p>
+                <p class="testimonio-autor">- María González, Barcelona</p>
+            </div>
+            
+            <div class="testimonio">
+                <p class="testimonio-texto">"El spa es increíble, los masajes fueron relajantes y profesionales. La comida en el restaurante era exquisita. Recomiendo este hotel para quienes buscan lujo y tranquilidad."</p>
+                <p class="testimonio-autor">- Carlos Mendoza, Buenos Aires</p>
+            </div>
+            
+            <div class="testimonio">
+                <p class="testimonio-texto">"Celebramos nuestro aniversario aquí y el personal nos sorprendió con una decoración especial en la habitación y una botella de champán. Pequeños detalles que hacen la diferencia. ¡Gracias por hacer nuestro día tan especial!"</p>
+                <p class="testimonio-autor">- Laura y Javier, Madrid</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Reservas -->
+    <section id="reservas" class="seccion-servicios">
+        <h2 class="seccion-titulo">Reserva <span class="dorado">tu estancia</span></h2>
+        <div class="reservas-container">
+            <form class="reserva-form">
+                <div class="form-group">
+                    <label for="fecha-llegada">Fecha de llegada</label>
+                    <input type="date" id="fecha-llegada" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fecha-salida">Fecha de salida</label>
+                    <input type="date" id="fecha-salida" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="adultos">Adultos</label>
+                    <input type="number" id="adultos" min="1" value="2" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ninos">Niños</label>
+                    <input type="number" id="ninos" min="0" value="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="habitacion">Tipo de habitación</label>
+                    <select id="habitacion" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="presidencial">Suite Presidencial</option>
+                        <option value="ejecutiva">Suite Ejecutiva</option>
+                        <option value="deluxe">Habitación Deluxe</option>
+                        <option value="estandar">Habitación Estándar</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="promo">Código promocional (opcional)</label>
+                    <input type="text" id="promo">
+                </div>
+                
+                <div class="form-group form-group-full">
+                    <button type="submit" class="btn-enviar">Ver disponibilidad</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="seccion-servicios" style="background-color: var(--color-fondo);">
+        <h2 class="seccion-titulo">Contáctanos</h2>
+        <div class="contacto-container">
+            <div class="contacto-info">
+                <h3>Información de contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. del Sol 1234, Costa Dorada</p>
+                <p><i class="fas fa-phone"></i> +34 123 456 789</p>
+                <p><i class="fas fa-envelope"></i> info@hotelsolyluna.com</p>
+                
+                <h3 style="margin-top: 2rem;">Horario de atención</h3>
+                <p>Recepción 24 horas</p>
+                <p>Restaurante: 7:00 - 23:00</p>
+                <p>Spa: 9:00 - 21:00</p>
+                
+                <h3 style="margin-top: 2rem;">Síguenos</h3>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <a href="#" style="color: var(--color-primario);"><i class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="#" style="color: var(--color-primario);"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" style="color: var(--color-primario);"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" style="color: var(--color-primario);"><i class="fab fa-tripadvisor fa-lg"></i></a>
+                </div>
+            </div>
+            
+            <div class="contacto-form">
+                <h3>Envíanos un mensaje</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="asunto">Asunto</label>
+                        <input type="text" id="asunto" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-enviar">Enviar mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <img src="logo sol copy/logoooooo.png" alt="Logo Hotel Sol y Luna" class="footer-logo">
+        
+        <div class="footer-redes">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-tripadvisor"></i></a>
+        </div>
+        
+        <p class="footer-derechos">© 2023 Hotel Sol y Luna. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling para los enlaces del menú
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Formulario de reservas (simulado)
+        document.querySelector('.reserva-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por tu interés. Pronto nos pondremos en contacto para confirmar tu reserva.');
+        });
+        
+        // Formulario de contacto (simulado)
+        document.querySelector('.contacto-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo lo antes posible.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
